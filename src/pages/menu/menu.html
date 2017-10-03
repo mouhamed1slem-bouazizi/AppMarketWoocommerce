@@ -1,0 +1,43 @@
+<ion-menu [content]="content">
+  <ion-header>
+      <ion-navbar>
+          <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+          
+        
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+    
+    
+  </ion-navbar>
+  </ion-header>
+
+  <ion-content class="card-background-page">
+
+    <ion-card>
+        <img src="./assets/images/backback.png" />
+        <div class="card-title">DERDAR</div>
+        <div class="card-subtitle">You deserve the best</div>
+    </ion-card>
+
+    
+
+    <ion-list>
+      <ion-item>
+          <h2>Home</h2>
+          
+      </ion-item>
+      <ion-item *ngFor="let category of categories" text-wrap (click)="openCategoryPage(category)" menuClose>
+        <ion-icon [name]="category.icon" item-left large></ion-icon>
+        <h2> {{ category.name }} </h2>
+        <p> {{ category.description }}</p>
+      </ion-item>
+      
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<ion-nav #content [root]="homePage"></ion-nav>
